@@ -21,7 +21,7 @@
 \usepackage{fontspec}
 \usepackage[a6paper,
   top=12mm,
-  bottom=20mm,
+  bottom=15mm,
   inner= 15mm,
   outer=8mm
 ]{geometry}
@@ -31,6 +31,7 @@
 \usepackage{fancyhdr}
 % \usepackage[style=alphabetic, backend=biber]{biblatex}
 \usepackage{graphicx}
+\usepackage{verse}
 
 % Hyperreg must be loaded last!
 % \usepackage{hyperref}
@@ -38,44 +39,58 @@
 % pdfx loads both hyperref and xcolor internally
 \usepackage[a-3u]{pdfx}
 
+
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 \newenvironment{dal}[1]
 {
-  \addcontentsline{toc}{section}{#1}
-  \noindent\textbf{#1}
-
-  \vspace{0,1cm}
-}{}
-  
-\newcommand\vsz[1]{
-  \begingroup
-  \setlength{\parindent}{0pt}
-  #1
-  \endgroup
-  \vspace{0.15cm}
+	\addcontentsline{toc}{section}{#1}
+	\noindent\textbf{#1}
+	\nopagebreak
+	\vspace{0.15cm}
+	\nopagebreak
+}{
+	\vspace{0.25cm}
 }
+  
+\setlength{\stanzaskip}{0.25cm}
+\setlength{\versewidth}{0.9\textwidth}  % 90% of text width
+\setlength{\leftmargini}{0.5cm}
+
+\newcommand\vsz[1]{
+	\begin{minipage}{\textwidth}
+		\begin{verse}
+			#1
+		\end{verse}
+	\end{minipage}
+	\vspace{0.25cm}
+}
+
+\newenvironment{safeverse}
+{\begin{minipage}{\textwidth}\begin{verse}}
+{\end{verse}\end{minipage}}
 
 \title{Magyar Tenger Daloskönyv}
 
 \begin{document}
 
 \begin{titlepage}
-  \begin{center}
-    {\Huge\textsc{Magyar Tenger Daloskönyv\\}}
-    \vfill
-    \includegraphics[width=\textwidth]{images/mtcscs-logo-szines.png}
-    \vfill
-  \end{center}
-\cleardoublepage
+	\begin{center}
+		{\Huge\textsc{Magyar Tenger Daloskönyv\\}}
+		\vfill
+		\includegraphics[width=\textwidth]{images/mtcscs-logo-szines.png}
+		\vfill
+	\end{center}
+	\cleardoublepage
 \end{titlepage}
 
 \tableofcontents
 
 \pagebreak
 
-\input{dalok/erdo-erdo.tex}
 \input{dalok/csakany-buzogany.tex}
+\input{dalok/erdo-erdo.tex}
+\input{dalok/tul-a-vizen.tex}
 
 \end{document}
