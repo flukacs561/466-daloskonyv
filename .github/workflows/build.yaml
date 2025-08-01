@@ -24,7 +24,7 @@ jobs:
       - name: Setup LaTeX environment
         run: |
           sudo apt-get update
-          sudo apt-get install -y texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-luatex texlive-lang-european
+          sudo apt-get install -y texlive-latex-recommended texlive-fonts-recommended texlive-fonts-extra texlive-luatex texlive-lang-european texlive-humanities
 
       - name: Build PDF
         run: |
