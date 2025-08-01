@@ -1,0 +1,9 @@
+*.aux
+*.fls
+*.out
+*.xmpdata
+*.fdb_latexmk
+*.log
+*.pdf
+*.toc
+*.xmpi
