@@ -29,13 +29,13 @@ jobs:
       - name: Build PDF
         run: |
           # Build your LaTeX document with LuaLaTeX
-          lualatex -interaction=nonstopmode main.tex
-          lualatex -interaction=nonstopmode main.tex
+          lualatex -interaction=nonstopmode 466_daloskonyv.tex
+          lualatex -interaction=nonstopmode 466_daloskonyv.tex
 
       - name: Prepare Pages content
         run: |
           mkdir -p _site
-          cp main.pdf _site/document.pdf
+          cp 466_daloskonyv.pdf _site/466_daloskonyv.pdf
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
