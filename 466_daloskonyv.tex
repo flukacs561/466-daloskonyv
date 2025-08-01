@@ -15,7 +15,7 @@
 \usepackage{fontspec}
 \usepackage[a6paper,
   top=12mm,
-  bottom=10mm,
+  bottom=20mm,
   inner= 15mm,
   outer=8mm
 ]{geometry}
@@ -24,6 +24,7 @@
 % \usepackage{fltex-maths}
 \usepackage{fancyhdr}
 % \usepackage[style=alphabetic, backend=biber]{biblatex}
+\usepackage{graphicx}
 
 % Hyperreg must be loaded last!
 % \usepackage{hyperref}
@@ -34,17 +35,41 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
-\title{Magyar Tenger Daloskönyv}
+\newenvironment{dal}[1]
+{
+  \addcontentsline{toc}{section}{#1}
+  \noindent\textbf{#1}
 
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{Magyar Tenger Daloskönyv} % title
-\fancyhead[R]{} % author
-\fancyhead[C]{\thepage}
+  \vspace{0,1cm}
+}{}
+  
+\newcommand\vsz[1]{
+  \begingroup
+  \setlength{\parindent}{0pt}
+  #1
+  \endgroup
+  \vspace{0.15cm}
+}
+
+\title{Magyar Tenger Daloskönyv}
 
 \begin{document}
 
-\maketitle
+\begin{titlepage}
+  \begin{center}
+    {\Huge\textsc{Magyar Tenger Daloskönyv\\}}
+    \vfill
+    \includegraphics[width=\textwidth]{/home/lukacsf/code/scout/images/mtcscs-logo-szines.png}
+    \vfill
+  \end{center}
+\cleardoublepage
+\end{titlepage}
+
 \tableofcontents
+
+\pagebreak
+
+\input{dalok/erdo-erdo.tex}
+\input{dalok/csakany-buzogany.tex}
 
 \end{document}
